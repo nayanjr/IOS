@@ -1,0 +1,45 @@
+var wordList = [["Swift","A Programming Language"],["Dog","Animal"],["MacBook","Apple Device"]]
+    var count = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        addUnderScore(count)
+    }
+
+    @IBAction func checkButtonFunc(_ sender: UIButton) {
+        
+        var letter = textOutlet.text!
+        var currentWord = wordList[0][0]
+        displayLabel.text!=""
+        for l in currentWord
+        {
+            
+            if (l.elementsEqual(letter))
+            {
+                displayLabel.text! += letter+" "
+            }
+            else{
+                displayLabel.text! += "_ "
+            }
+            
+                
+        }
+    }
+    
+    @IBAction func playAgainButtonFunc(_ sender: Any) {
+    }
+    
+    func addUnderScore(_ wordNum : Int)
+    {
+        let word = wordList[wordNum][0]
+        displayLabel.text!=""
+        
+        for _ in word
+        {
+            displayLabel.text!+="_ "
+        }
+        hintLabel.text! = "Hint: " + wordList[wordNum][1]
+    }
+}
